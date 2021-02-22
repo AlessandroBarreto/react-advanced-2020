@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import {MyContext} from "../../../MyContext"
+import Children from "./children"
 // more components
 // fix - context api, redux (for more complex cases)
 
@@ -18,6 +19,7 @@ const ContextAPI = () => {
       <button className="btn" onClick={addCounter}>
         add
       </button>
+      <Children/>
     </div>
   );
 };
