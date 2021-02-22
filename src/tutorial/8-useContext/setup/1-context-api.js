@@ -1,10 +1,27 @@
-import React, { useState, useContext } from 'react';
-import { data } from '../../../data';
+import React, { useContext } from "react";
+import {MyContext} from "../../../MyContext"
 // more components
 // fix - context api, redux (for more complex cases)
 
+
 const ContextAPI = () => {
-  const [people, setPeople] = useState(data);
+  const {count, setCount } = useContext(MyContext)
+
+  const addCounter = () => setCount(count + 1)
+  const removeCounter = () => setCount(count - 1);
+  return (
+    <div>
+      <h3>ContextAPI counter: {count}</h3>
+      <button className="btn" onClick={removeCounter}>
+        remove
+      </button>
+      <button className="btn" onClick={addCounter}>
+        add
+      </button>
+    </div>
+  );
+};
+/*   const [people, setPeople] = useState(data);
   const removePerson = (id) => {
     setPeople((people) => {
       return people.filter((person) => person.id !== id);
@@ -41,6 +58,6 @@ const SinglePerson = ({ id, name, removePerson }) => {
       <button onClick={() => removePerson(id)}>remove</button>
     </div>
   );
-};
+}; */
 
 export default ContextAPI;

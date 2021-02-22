@@ -1,12 +1,16 @@
-import React from 'react'
-import Setup from "./tutorial/4-forms/setup/1-controlled-inputs";
+import React, { useState } from "react";
+import Setup from "./tutorial/8-useContext/setup/1-context-api";
+import { MyContext } from "./MyContext";
 
-function App() {
+export default function App() {
+  const [count, setCount] = useState(0);
+
   return (
     <div className="container">
-      <Setup />
+      <MyContext.Provider value={{ count, setCount }}>
+        <h3>App Counter: {count}</h3>
+        <Setup />
+      </MyContext.Provider>
     </div>
   );
 }
-
-export default App
